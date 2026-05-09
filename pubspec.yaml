@@ -1,6 +1,6 @@
 name: native_torch
 description: "A Flutter plugin for controlling torch/flashlight functionality with native platform integration. Supports turning torch on/off, toggling, and adjusting intensity."
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/oyaei/native_torch
 repository: https://github.com/oyaei/native_torch
 issue_tracker: https://github.com/oyaei/native_torch/issues

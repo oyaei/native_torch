@@ -139,14 +139,14 @@ class NativeTorchPlugin: FlutterPlugin {
             val cameraManager = getCameraManager(context)
             val cameraId = getCameraId(context)
             if (cameraId.isNotEmpty()) {
-                // Convert 0.0-1.0 to torch level
-                val level = (intensity * getMaxTorchIntensity(context)).toInt().coerceIn(0, getMaxTorchIntensity(context))
-                cameraManager.setTorchMode(cameraId, level)
-                torchOn = level > 0
+                val maxLevel = getMaxTorchIntensity(context)
+                val level = (intensity * maxLevel).toInt().coerceIn(1, maxLevel)
+                cameraManager.turnOnTorchWithStrengthLevel(cameraId, level)
+                torchOn = true
             }
         } else {
-            // For older versions, just toggle on/off
-            if (intensity > 0.5) {
+            // Android 13 未満は ON/OFF のみ
+            if (intensity > 0.0) {
                 turnOnTorch(context)
             } else {
                 turnOffTorch(context)
