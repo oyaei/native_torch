@@ -67,7 +67,7 @@ public class NativeTorchPlugin: NSObject, FlutterPlugin {
                 }
             }
         case "isTorchOn":
-            result(torchOn)
+            result(isTorchOn())
         case "setIntensity":
             if let args = call.arguments as? [String: Any],
                let intensity = args["intensity"] as? Double {
@@ -101,6 +101,10 @@ public class NativeTorchPlugin: NSObject, FlutterPlugin {
 
     private func isTorchAvailable() -> Bool {
         return torchDevice?.hasTorch ?? false
+    }
+
+    private func isTorchOn() -> Bool {
+        return torchDevice?.torchMode == .on
     }
 
     private func turnOnTorch(completion: @escaping (Bool) -> Void) {

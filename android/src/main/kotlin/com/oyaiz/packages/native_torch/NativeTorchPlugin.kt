@@ -3,6 +3,8 @@ package com.oyaiz.packages.native_torch
 import android.content.Context
 import android.hardware.camera2.CameraManager
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.dart.DartExecutor
@@ -15,8 +17,19 @@ class NativeTorchPlugin: FlutterPlugin {
     private var cameraManager: CameraManager? = null
     private var cameraId: String? = null
 
+    private val torchCallback = object : CameraManager.TorchCallback() {
+        override fun onTorchModeChanged(cameraId: String, enabled: Boolean) {
+            super.onTorchModeChanged(cameraId, enabled)
+            torchOn = enabled
+        }
+    }
+
     override fun onAttachedToEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(binding.binaryMessenger, "native_torch")
+        
+        val cm = getCameraManager(binding.applicationContext)
+        cm.registerTorchCallback(torchCallback, Handler(Looper.getMainLooper()))
+        
         channel.setMethodCallHandler { call, result ->
             when (call.method) {
                 "getPlatformVersion" -> {
@@ -69,6 +82,7 @@ class NativeTorchPlugin: FlutterPlugin {
                     try {
                         val maxLevel = getMaxTorchIntensity(binding.applicationContext)
                         result.success(maxLevel)
+        cameraManager?.unregisterTorchCallback(torchCallback)
                     } catch (e: Exception) {
                         result.success(1)
                     }
