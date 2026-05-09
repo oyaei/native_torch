@@ -48,15 +48,15 @@ void main() {
   });
 
   test('turnOn', () async {
-    expect(await platform.turnOn(), null);
+    await platform.turnOn();
   });
 
   test('turnOff', () async {
-    expect(await platform.turnOff(), null);
+    await platform.turnOff();
   });
 
   test('toggle', () async {
-    expect(await platform.toggle(), null);
+    await platform.toggle();
   });
 
   test('isTorchOn', () async {

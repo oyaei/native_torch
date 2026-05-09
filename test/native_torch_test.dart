@@ -60,7 +60,7 @@ void main() {
     MockNativeTorchPlatform fakePlatform = MockNativeTorchPlatform();
     NativeTorchPlatform.instance = fakePlatform;
 
-    expect(await nativeTorchPlugin.turnOn(), null);
+    await nativeTorchPlugin.turnOn();
   });
 
   test('turnOff', () async {
@@ -68,7 +68,7 @@ void main() {
     MockNativeTorchPlatform fakePlatform = MockNativeTorchPlatform();
     NativeTorchPlatform.instance = fakePlatform;
 
-    expect(await nativeTorchPlugin.turnOff(), null);
+    await nativeTorchPlugin.turnOff();
   });
 
   test('toggle', () async {
@@ -76,7 +76,7 @@ void main() {
     MockNativeTorchPlatform fakePlatform = MockNativeTorchPlatform();
     NativeTorchPlatform.instance = fakePlatform;
 
-    expect(await nativeTorchPlugin.toggle(), null);
+    await nativeTorchPlugin.toggle();
   });
 
   test('isTorchOn', () async {

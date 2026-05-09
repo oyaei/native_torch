@@ -10,7 +10,10 @@ The `native_torch` package provides a simple and efficient way to control the to
 
 ```yaml
 dependencies:
-  native_torch: ^0.0.1
+  native_torch:
+    git:
+      url: https://github.com/oyaei/native_torch.git
+      ref: main
 ```
 
 2. Run `flutter pub get`
