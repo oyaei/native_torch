@@ -1,4 +1,4 @@
-package com.example.native_torch
+package com.oyaiz.packages.native_torch
 
 import android.content.Context
 import android.hardware.camera2.CameraManager

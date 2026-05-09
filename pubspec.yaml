@@ -23,7 +23,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.native_torch
+        package: com.oyaiz.packages.native_torch
         pluginClass: NativeTorchPlugin
       ios:
         pluginClass: NativeTorchPlugin

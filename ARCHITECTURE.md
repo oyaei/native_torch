@@ -127,7 +127,7 @@ class MethodChannelNativeTorch extends NativeTorchPlatform {
 
 #### Android Implementation (Kotlin)
 
-**File:** `android/app/src/main/kotlin/com/example/native_torch/NativeTorchPlugin.kt`
+**File:** `android/app/src/main/kotlin/com/oyaiz/packages/native_torch/NativeTorchPlugin.kt`
 
 **Components:**
 
@@ -427,7 +427,7 @@ native_torch/
 │   └── native_torch_method_channel.dart   # Method channel impl
 ├── android/                                # Android platform code
 │   └── app/src/main/
-│       ├── kotlin/com/example/native_torch/
+│       ├── kotlin/com/oyaiz/packages/native_torch/
 │       │   └── NativeTorchPlugin.kt
 │       └── AndroidManifest.xml
 ├── ios/                                    # iOS platform code

@@ -390,7 +390,7 @@ const MethodChannel('native_torch')
 
 **Android (Kotlin):**
 
-- Package: `com.example.native_torch`
+- Package: `com.oyaiz.packages.native_torch`
 - Class: `NativeTorchPlugin`
 - Uses: `CameraManager` and `CameraCharacteristics`
 

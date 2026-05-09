@@ -1,4 +1,4 @@
-group 'com.example.native_torch'
+group 'com.oyaiz.packages.native_torch'
 version '1.0-SNAPSHOT'
 
 buildscript {
